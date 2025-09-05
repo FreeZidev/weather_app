@@ -20,8 +20,37 @@
         <!-- Kontajner pre zobrazenie informácií o počasí -->
         <div class="weather-info">
             <h2 id="location"></h2>  <!-- Názov mesta -->
+            <div id="weather-icon"></div>  <!-- Ikona počasia -->
             <p id="temperature"></p>  <!-- Teplota -->
             <p id="description"></p>  <!-- Popis počasia -->
+            
+            <!-- Tlačidlo pre rozbalenie detailov -->
+            <button id="expandButton" class="expand-btn" style="display: none;">
+                <span id="expandText">Show Details</span>
+                <span id="expandIcon">▼</span>
+            </button>
+            
+            <!-- Rozbaliteľná sekcia s detailmi -->
+            <div id="weather-details" class="weather-details" style="display: none;">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Feels like</span>
+                        <span id="feels-like" class="detail-value">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Humidity</span>
+                        <span id="humidity" class="detail-value">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Wind Speed</span>
+                        <span id="wind-speed" class="detail-value">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Pressure</span>
+                        <span id="pressure" class="detail-value">-</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Pripojenie JavaScript súboru -->
