@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Základné nastavenia stránky -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <!-- Pripojenie CSS súboru -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Hlavný kontajner pre celú aplikáciu -->
     <div class="container">
+        <!-- Nadpis aplikácie -->
         <h1>Weather App</h1>
+        <!-- Input pre zadanie názvu mesta -->
         <input type="text" id="locationInput" placeholder="Enter a city">
+        <!-- Tlačidlo pre vyhľadávanie -->
         <button id="searchButton">Search</button>
+        <!-- Kontajner pre zobrazenie informácií o počasí -->
         <div class="weather-info">
-            <h2 id="location"></h2>
-            <p id="temperature"></p>
-            <p id="description"></p>
+            <h2 id="location"></h2>  <!-- Názov mesta -->
+            <p id="temperature"></p>  <!-- Teplota -->
+            <p id="description"></p>  <!-- Popis počasia -->
         </div>
     </div>
+    <!-- Pripojenie JavaScript súboru -->
     <script src="script.js"></script>
 </body>
 </html>

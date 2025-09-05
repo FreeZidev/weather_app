@@ -1,9 +1,11 @@
+/* Reset všetkých štandardných štýlov */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Základné nastavenia body - gradient pozadie a centrovanie */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -14,6 +16,7 @@ body {
     padding: 20px;
 }
 
+/* Hlavný kontajner aplikácie - glassmorphism efekt */
 .container {
     max-width: 450px;
     width: 100%;
@@ -27,6 +30,7 @@ body {
     animation: slideUp 0.6s ease-out;
 }
 
+/* Animácia pre objavenie sa kontajnera */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -38,6 +42,7 @@ body {
     }
 }
 
+/* Stylovanie hlavného nadpisu s gradient textom */
 h1 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -49,6 +54,7 @@ h1 {
     letter-spacing: -0.5px;
 }
 
+/* Stylovanie input poľa pre zadanie mesta */
 input[type="text"] {
     width: 100%;
     padding: 15px 20px;
@@ -60,6 +66,7 @@ input[type="text"] {
     background: rgba(255, 255, 255, 0.8);
 }
 
+/* Focus efekt pre input pole */
 input[type="text"]:focus {
     outline: none;
     border-color: #667eea;
@@ -67,6 +74,7 @@ input[type="text"]:focus {
     transform: translateY(-2px);
 }
 
+/* Stylovanie tlačidla s gradient pozadím */
 button {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: #fff;
@@ -81,15 +89,18 @@ button {
     margin-top: 10px;
 }
 
+/* Hover efekt pre tlačidlo */
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
+/* Active stav tlačidla */
 button:active {
     transform: translateY(0);
 }
 
+/* Kontajner pre zobrazenie informácií o počasí */
 .weather-info {
     margin-top: 30px;
     padding: 20px;
@@ -99,6 +110,7 @@ button:active {
     animation: fadeIn 0.8s ease-out;
 }
 
+/* Animácia pre objavenie sa weather info */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -110,6 +122,7 @@ button:active {
     }
 }
 
+/* Stylovanie názvu mesta */
 #location {
     font-size: 1.8rem;
     font-weight: 600;
@@ -117,6 +130,7 @@ button:active {
     margin-bottom: 10px;
 }
 
+/* Stylovanie teploty s gradient textom */
 #temperature {
     font-size: 3rem;
     font-weight: 700;
@@ -127,6 +141,7 @@ button:active {
     margin: 15px 0;
 }
 
+/* Stylovanie popisu počasia */
 #description {
     font-size: 1.2rem;
     color: #4a5568;
@@ -134,7 +149,7 @@ button:active {
     font-weight: 500;
 }
 
-/* Loading animation */
+/* Loading animácia - spinner */
 .loading {
     display: inline-block;
     width: 20px;
@@ -145,12 +160,13 @@ button:active {
     animation: spin 1s linear infinite;
 }
 
+/* Animácia pre loading spinner */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-/* Responsive design */
+/* Responsive dizajn pre mobilné zariadenia */
 @media (max-width: 480px) {
     .container {
         padding: 30px 20px;
