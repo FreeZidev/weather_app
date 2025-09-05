@@ -1,6 +1,6 @@
-// API nastavenia pre OpenWeatherMap
-const apiKey = '886546614e055726ae6986547f2daa6e';
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+// API nastavenia pre OpenWeatherMap (načítané z config.js)
+const apiKey = config.apiKey;
+const apiUrl = config.apiUrl;
 
 // Získanie referencií na HTML elementy
 const locationInput = document.getElementById('locationInput');
