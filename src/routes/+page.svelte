@@ -3,11 +3,11 @@
 	import { languageStore } from '$lib/stores/language';
 	import { fetchCurrentWeather, fetchForecast, fetchHourlyForecast } from '$lib/utils/weather';
 	import { t } from '$lib/utils/i18n';
-	import { PUBLIC_OPENWEATHER_API_KEY } from '$env/static/public';
+	import { env } from '$env/dynamic/public';
 	import WeatherCard from '$lib/components/WeatherCard.svelte';
 	import ForecastCard from '$lib/components/ForecastCard.svelte';
 
-	let searchInput = '';
+	let searchInput = $state('');
 	
 	const lang = $derived($languageStore);
 
@@ -76,8 +76,9 @@
 					const lon = position.coords.longitude;
 					
 					// Použiť reverse geocoding na získanie názvu mesta
+					const apiKey = env.PUBLIC_OPENWEATHER_API_KEY || '';
 					const geoResponse = await fetch(
-						`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${PUBLIC_OPENWEATHER_API_KEY}`
+						`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`
 					);
 					
 					if (!geoResponse.ok) {

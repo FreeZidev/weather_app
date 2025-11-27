@@ -1,8 +1,8 @@
-import { PUBLIC_OPENWEATHER_API_KEY, PUBLIC_OPENWEATHER_API_URL } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 import type { WeatherData, ForecastData, HourlyData } from '$lib/stores/weather';
 
-const API_KEY = PUBLIC_OPENWEATHER_API_KEY;
-const API_URL = PUBLIC_OPENWEATHER_API_URL || 'https://api.openweathermap.org/data/2.5';
+const API_KEY = env.PUBLIC_OPENWEATHER_API_KEY || '';
+const API_URL = env.PUBLIC_OPENWEATHER_API_URL || 'https://api.openweathermap.org/data/2.5';
 
 export function getWeatherIcon(weatherMain: string): string {
 	const weatherIcons: Record<string, string> = {
@@ -29,6 +29,10 @@ export async function fetchCurrentWeather(
 	city: string,
 	unit: 'metric' | 'imperial' = 'metric'
 ): Promise<WeatherData> {
+	if (!API_KEY) {
+		throw new Error('API key is not configured. Please set PUBLIC_OPENWEATHER_API_KEY in environment variables.');
+	}
+	
 	const response = await fetch(
 		`${API_URL}/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=${unit}`
 	);
@@ -59,6 +63,10 @@ export async function fetchForecast(
 	city: string,
 	unit: 'metric' | 'imperial' = 'metric'
 ): Promise<ForecastData[]> {
+	if (!API_KEY) {
+		throw new Error('API key is not configured. Please set PUBLIC_OPENWEATHER_API_KEY in environment variables.');
+	}
+	
 	const response = await fetch(
 		`${API_URL}/forecast?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=${unit}`
 	);
@@ -113,6 +121,10 @@ export async function fetchHourlyForecast(
 	city: string,
 	unit: 'metric' | 'imperial' = 'metric'
 ): Promise<HourlyData[]> {
+	if (!API_KEY) {
+		throw new Error('API key is not configured. Please set PUBLIC_OPENWEATHER_API_KEY in environment variables.');
+	}
+	
 	const response = await fetch(
 		`${API_URL}/forecast?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=${unit}`
 	);
